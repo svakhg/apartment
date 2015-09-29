@@ -1,0 +1,10 @@
+<?php if($this->apartments) {?>
+<form action="/admin/apartments/del" method="post">
+<p>Вы уверены, что хотите удалить запись № <?php echo $this->apartments->ID; ?> ?</p>
+<div>
+    <input type="hidden" name="ID" value="<?php echo $this->apartments->ID; ?>" >
+    <input type="submit" name="del" value="Yes" >
+    <input type="submit" name="del" value="No" >
+</div>
+</form>
+<?php } else echo 'errorr';?>

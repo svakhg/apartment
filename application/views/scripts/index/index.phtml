@@ -1,0 +1,11 @@
+            
+    <div id="you_here"><p><span><?php echo $this->translate('You are here')?></span><?php echo $this->translate('Home')?></p></div>
+    <div id="welcome">
+        <h1><?php echo $this->text->get('title'); ?></h1>
+        <p><?echo $this->text->get('text'); ?></p>
+    </div>
+    
+    <?php 
+    $this->partialLoop()->setObjectKey('model');
+    echo $this->partialLoop('index/mainapartments.phtml', $this->apartments); ?>
+    

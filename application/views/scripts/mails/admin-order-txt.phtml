@@ -1,0 +1,13 @@
+Поступил заказ:
+
+Клиент <?php echo $this->client_info->name ?> заказал услугу(и):<br>
+<?php 
+foreach($this->service as $service)
+{
+    echo $service->get('name').'<br>';
+}
+?><br>
+
+Клиент: <?php echo $this->client_info->name ?><br>
+E-mail: <?php echo $this->client_info->email ?><br>
+Телефон <?php echo $this->client_info->phone ?><br>

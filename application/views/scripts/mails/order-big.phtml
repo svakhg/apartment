@@ -1,0 +1,19 @@
+<p>Уважаемый(-ая) <?php echo $this->client_info->name; ?> !</p>
+<p>Компания «Славянка» благодарит за ваш заказ.</p> 
+<p>Вы заказали услуги:<br>
+
+<ul>
+    <?php foreach ($this->service as $service){?>
+        <li>
+            <?php echo $service->get('name') ?>
+        </li>
+    <?php }?>
+</ul>    
+    <br>
+
+Наш менеджер свяжется с вами в течение 12 часов.<br> 
+
+С уважением,<br>
+Компания «Славянка»<br>
+Посуточная аренда квартир<br>
+<a href="www.apartment-kharkov.com.ua">apartment-kharkov.com.ua</a>

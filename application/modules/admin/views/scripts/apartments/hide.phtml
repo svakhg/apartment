@@ -1,0 +1,18 @@
+<form action="/admin/apartments/hide/<?php echo $this->apartments->ID;?>" method="post">
+<p> 
+<?php 
+if($this->apartments->published == 1)
+{?>
+ Вы уверены, что хотите скрыть объявление № <?php echo $this->apartments->ID; ?> ?<br>
+Объявление не будет отображаться на сайте!
+<?php
+}
+else {?> Объявление № <?php echo $this->apartments->ID; ?> будет отображено на сайте <?php }?>
+</p>
+<div>
+    <input type="hidden" name="ID" value="<?php echo $this->apartments->ID; ?>" >
+    <input type="hidden" name="pub" value="<?php echo $this->apartments->published;?>">
+    <input type="submit" name="published" value="Yes" >
+    <input type="submit" name="published" value="No" >
+</div>
+</form>

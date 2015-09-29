@@ -1,0 +1,42 @@
+<div id="block_menu">
+    <div id="main_menu">
+        <div id="info_menu">
+            <div id="info_menu_text1">+380990771434</div>
+            <div id="info_menu_text2">+380678429675</div>
+        </div> <!-- end of info_menu -->
+        <div class="menu_text">
+            <ul class="unstyled">
+                <li><a href="/"><?php echo $this->translate('Home') ?></a></li> 
+                <li class="submenu"><a href="<?php echo $this->baseUrl('/apartments/') ?>"><?php echo $this->translate('Apartments')?></a>
+                    <div class="menu1">
+                    <ul>
+                        <li><a href="<?php echo $this->url(array('rooms' => '1'), 'apartments-rooms') ?>">1 <?php echo $this->translate('room')?></a></li>
+                        <li><a href="<?php echo $this->url(array('rooms' => '2'), 'apartments-rooms') ?>">2 <?php echo $this->translate('x rooms')?></a></li>
+                        <li><a href="<?php echo $this->url(array('rooms' => '3'), 'apartments-rooms') ?>">3 <?php echo $this->translate('x rooms')?></a></li>
+                    </ul>
+                   </div>
+                </li>
+                
+                <li><a href="<?php echo $this->url(array(), 'loyalty') ?>"><?php echo $this->translate('Loyalty program')?></a></li>
+                <li><a href="<?php echo $this->url(array(), 'city') ?>"><?php echo $this->translate('Our city')?></a></li>
+                <li><a href="<?php echo $this->url(array(), 'rules') ?>"><?php echo $this->translate('Rules')?></a></li>
+                <li><a href="<?php echo $this->url(array(), 'about') ?>"><?php echo $this->translate('About us')?></a></li>
+                <li class="last submenu"><a href="/services"><?php echo $this->translate('Additional services')?></a>
+                    <div class="menu1">
+                    <ul>
+                    
+                    <?php 
+                    $this->partialLoop()->setObjectKey('model');
+                    echo $this->partialLoop('services/services-menu.phtml', $this->layout()->services); ?>    
+                    </ul>
+                    </div>
+                </li>
+             </ul>
+        </div> <!-- end of menu_text -->
+
+        <div id="flags">
+            <a href="<?php echo Model_Lang::langUrl()?>"><img src="/img/flag-rus.png" alt="rus"></a>
+            <a href="<?php echo Model_Lang::langUrl('eng')?>"><img src="/img/flag-usa.png" alt="usa"></a>
+        </div>
+    </div> <!-- end of main_menu -->
+    </div> <!-- end of block_menu -->

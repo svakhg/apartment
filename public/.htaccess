@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.apartment-kharkov\.com\.ua$ [NC]
+RewriteRule ^(.*)$ http://apartment-kharkov.com.ua/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.apartment-kharkov\.com$ [NC]
+RewriteRule ^(.*)$ http://apartment-kharkov.com/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

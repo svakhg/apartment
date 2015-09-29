@@ -1,0 +1,107 @@
+
+<form action="/admin/apartments/map/id/<?php echo $this->apartments->ID ?>" method="post">
+<?
+ $map = $this->apartments->map_number;
+
+if ($map=='B'){$qwb="selected";}
+if ($map=='A'){$qwa="selected";}
+if ($map=='01'){$qw1="selected";}
+if ($map=='02'){$qw2="selected";}
+if ($map=='03'){$qw3="selected";}
+if ($map=='04'){$qw4="selected";}
+if ($map=='05'){$qw5="selected";}
+if ($map=='06'){$qw6="selected";}
+if ($map=='07'){$qw7="selected";}
+if ($map=='08'){$qw8="selected";}
+if ($map=='09'){$qw9="selected";}
+if ($map=='10'){$qw10="selected";}
+if ($map=='11'){$qw11="selected";}
+if ($map=='12'){$qw12="selected";}
+if ($map=='13'){$qw13="selected";}
+if ($map=='14'){$qw14="selected";}
+if ($map=='15'){$qw15="selected";}
+if ($map=='16'){$qw16="selected";}
+if ($map=='17'){$qw17="selected";}
+if ($map=='18'){$qw18="selected";}
+if ($map=='19'){$qw19="selected";}
+if ($map=='20'){$qw20="selected";}
+if ($map=='21'){$qw21="selected";}
+if ($map=='22'){$qw22="selected";}
+if ($map=='23'){$qw23="selected";}
+if ($map=='24'){$qw24="selected";}				  
+if ($map=='25'){$qw25="selected";}
+if ($map=='26'){$qw26="selected";}
+if ($map=='27'){$qw27="selected";}
+if ($map=='28'){$qw28="selected";}
+if ($map=='29'){$qw29="selected";}	
+
+?>
+Выберите часть города в которой расположена квартира -<select name="map_number">
+<option value="B" <?=$qwb?>>Центр - м. Исторический Музей, м. Советская</option>
+<option value="A" <?=$qwa?>>Центр - м. Госпром, м. Научная, м. Университет</option>
+<option value="01" <?=$qw1?>>Пятихатки</option>
+<option value="02" <?=$qw2?>>Алексеевка</option>
+<option value="03" <?=$qw3?>>Поселок Жуковского</option>
+<option value="04" <?=$qw4?>>Павлово Поле, Алексеевка, Сортировка</option>
+<option value="05" <?=$qw5?>>Павлово Поле, Шатиловка, Сокольники</option>
+<option value="06" <?=$qw6?>>8</option>
+<option value="07" <?=$qw7?>>Северная Салтовка, Салтовка</option>
+<option value="08" <?=$qw8?>>Холодная Гора, Лысая Гора</option>
+<option value="09" <?=$qw9?>>Нагорный</option>
+<option value="10" <?=$qw10?>>10 </option>
+<option value="11" <?=$qw11?>>11 </option>
+<option value="12" <?=$qw12?>>Салтовка</option>
+<option value="13" <?=$qw13?>>Холодная Гора, Залютино</option>
+<option value="14" <?=$qw14?>>Москалевка, Холодная Гора</option>
+<option value="15" <?=$qw15?>>Левада</option>
+<option value="16" <?=$qw16?>>Новая Бавария</option>
+<option value="17" <?=$qw17?>>17</option>
+<option value="18" <?=$qw18?>>18</option>
+<option value="19" <?=$qw19?>>19</option>
+<option value="20" <?=$qw20?>>20</option>
+<option value="21" <?=$qw21?>>21</option>
+<option value="22" <?=$qw22?>>22</option>
+<option value="23" <?=$qw23?>>23</option>
+<option value="24" <?=$qw24?>>24</option>
+<option value="25" <?=$qw25?>>25</option>
+<option value="26" <?=$qw26?>>26</option>
+<option value="27" <?=$qw27?>>27</option>
+<option value="28" <?=$qw28?>>28</option>
+<option value="29" <?=$qw29?>>29</option>				
+</select>
+<input type="submit" name="ok" value="Записать"><br>
+
+
+<?php
+				 
+if (!isset($this->apartments->map_number))
+{  
+$x_res=$this->apartments->map_point_x;
+$y_res=$this->apartments->map_point_y;
+
+?>
+<input type="hidden" name="id" value="<?=$this->apartments->ID?>">
+<input type="hidden" name="map_img">
+<input type="hidden" name="x_res" value="<?php echo $this->apartments->map_point_x?>">
+<input type="hidden" name="y_res" value="<?php echo $this->apartments->map_point_y?>">
+<div id="point" style="position:relative; left:'<?php echo $this->apartments->map_point_x?>'px; top:'<?php echo $this->apartments->map_point_y?>'px; width:30px; height:30px; z-index:2; "><img src="/img/arrow.gif" width="30" height="30"><?php echo $this->apartments->map_point_x; echo ' and ';?> <?php echo $this->apartments->map_point_y?></div>
+<div id="map" style="position:absolute; z-index:1; left:010px;"><input type="image" alt="Включите отображение рисунков, чтобы увидеть карту" width="800" height="630" src="/img/map/<?php echo $map?>.JPG"></div></td>
+
+<?php
+}
+
+if (isset($this->apartments->map_number))
+{
+$x_res=$x-360;
+$y_res=$y+80;
+
+//mysql_query('UPDATE tmp_table SET x=' . $x_res . ', y=' . $y_res . ', map_number=\'' . $map . '\'');
+?>
+
+<input type="hidden" name="x_res" value="<?php echo $this->apartments->map_point_x?>">
+<input type="hidden" name="y_res" value="<?php echo $this->apartments->map_point_y?>">
+<div id="point" style="position:relative; left:'<?php echo $this->apartments->map_point_x?>'px; top:'<?php echo $this->apartments->map_point_x?>'px; width:30px; height:30px; z-index:2; "><img src="/img/arrow.gif" width="30" height="30"><?php echo $this->apartments->map_point_x?><?php echo $this->apartments->map_point_x?></div>
+<input type="hidden" name="map_img">
+<div id="map" style="position:absolute; z-index:1; left:010px; "><input type="image" alt="Включите отображение рисунков, чтобы увидеть карту" width="800" height="630" src="/img/map/<?php echo $map?>.JPG"></div>
+<?php }?>
+</form>

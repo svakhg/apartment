@@ -1,0 +1,59 @@
+<div id="you_here"><p><span><?php echo $this->translate('You are here')?></span>
+<a href="/"><?php echo $this->translate('Home'); ?></a> / <?php echo $this->translate('Loyalty program')?></p></div>
+<div id="menu_view">
+    <div id="line"></div>
+</div>
+
+<div class="pages">
+    
+ <?php
+  if (Model_Lang::get() == 'rus')
+ {
+ ?>   
+<h2>Специальное предложение для постоянных клиентов.</h2>
+
+Чтобы получить статус «Постоянный клиент» вам необходимо лишь раз воспользоваться услугами компании «Славянка», и тогда уже при втором обращении к нам вы сможете воспользоваться привилегиями Постоянного Клиента.<br />
+Став Постоянным Клиентом вы получаете:
+<ul><li>
+Возможность заказать квартиру по акционной цене из нашего специального предложения (все квартиры на этой странице)</li><li>
+Объемную скидку при поселении на срок больше чем 7 дней*</li><li>
+Приоритетную обработку вашего заказа</li><li>
+Приоритетное бронирование квартир</li><li>
+Участие в акциях от компании «Славянка»</li></ul>
+<br /><br />
+С вашим первым заказом вы получаете карту Постоянного Клиента, просто назовите номер вашей карты при последующем заказе, и воспользуйтесь нашим специальным предложением. <br />
+Статус Постоянного Клиента является постоянным, и остается независимо от частоты и количества ваших заказов, и вы можете воспользоваться вашими преимуществами в любой момент. Вы также можете передать карту вашим друзьям и знакомым.
+<br /><br />
+
+*Не суммируется со скидкой по специальному предложению.
+<br /><br /><br />
+
+<?php 
+
+}
+ else {
+
+?>
+<h2>Special offer for the loyal customers</h2>
+
+In order to get the status of a "Loyal customer" you need only once to use the services of our company "Charming Apartments" and then, by the second request, you could use the privileges of the Loyal Customer. <br />
+Becoming a Loyal Customer you get:
+<ul><li>
+	A possibility to book an apartment at the hot price from our Special Offer (all apartments on this page);</li><li>
+	A great discount by living in our apartments in term more than 7 days* for apartments apart of Special Offer;</li><li>
+	Processing of your reservation on a priority basis;</li><li>
+	Take part in all special offers of the company “Charming apartments”.</li></ul>
+<br /><br />
+With your first reservation you will get the card of a Loyal Customer. You should tell us the number of your card by your next reservation and then use our special offer. <br />
+
+The status of a Loyal Customer is constant and is available regardless of the frequency and numbers of your reservations. You can use your advantages at any moment. 
+You can also give your card to your family and friends <br /><br />
+
+*Do not sum up with a discount of a special offer.
+<br /><br /><br />
+</div>
+<?php }?>
+
+<?php 
+$this->partialLoop()->setObjectKey('model');
+echo $this->partialLoop('apartments/_apartment.phtml', $this->apartments); ?>

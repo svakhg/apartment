@@ -1,0 +1,66 @@
+<div class="view_list">
+<div class="view_list_photo">
+    <div class="wf">
+        <a href="<?php echo $this->url(array('id' => $this->model->ID), 'apartment') ?>">
+        <!--<a href="/apartments/details/room/<?php echo $this->model->option_32;?>/id/<?php echo $this->model->ID; ?>" -->
+            <span class="layer"></span>
+            <img src="<?php echo Model_Image::getUrl($this->model->img, 237, 124, true); ?>" alt="photo"/>
+        </a>
+    </div>
+    <?php 
+    
+        $mdl = new Model_ApartmentFeature();
+        $select = $mdl->select();
+        $select->where('feature_id IN (15,5,29)');
+        $features = $this->model->findDependentRowset('Model_ApartmentFeature', null,$select);
+        foreach ($features as $feature)
+        {
+            $f = $feature->findDependentRowset('Model_Features');
+            if($feature->feature_id == 29)
+            echo '<div class="wifi"></div>';
+       }
+
+    ?>
+              
+</div>
+<div class="view_list_text">
+    <h3><?php echo $this->model->get('comment'); ?></h3>
+    <p>
+    <ul class="unstyled">
+    <?php 
+        //$mdl = new Model_ApartmentFeature();
+        //$select = $mdl->select();
+        //$select->where('feature_id IN (15,5,29)');
+       // $features = $this->model->findDependentRowset('Model_ApartmentFeature', null,$select);
+        foreach ($features as $feature){
+            $f = $feature->findDependentRowset('Model_Features');
+            foreach ($f as $v){
+                if ($feature->feature_id == 29) continue;
+                ?>
+                
+                <li><?php echo $v->get('title') . ($feature->value? ' - ' . $feature->value : ''); ?></li>
+            <?php }
+        }
+    ?>         
+    </ul>
+    </p>
+</div>
+
+<div class="view_list_price">
+    <p><span class="txt1"><?php echo $this->translate('Price')?></span><br><span class="txt2"><?php echo $this->translate('Per day')?></span></p>
+
+    <div class="list_price">        
+        <span class="pr"><?php echo $this->model->get('cost'); ?></span>
+        <div class="grn"><?php echo $this->translate('usd');?></div>
+    </div>
+
+    <div class="bt_price">
+        <a class="red_button" href="<?php echo $this->url(array('id' => $this->model->ID), 'apartment') ?>"><?php echo $this->translate('Detailed')?></a>
+    </div>
+    <div class="bt_price bt_price1">
+        <a class="red_button user_click" href="/apartments/reserve/id/<?php echo $this->model->ID; ?>">
+            <?php echo $this->translate('Request availability')?>
+        </a>
+    </div>
+</div>
+</div>

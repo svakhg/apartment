@@ -1,0 +1,21 @@
+<div id="you_here"><p><span><?php echo $this->translate('You are here')?></span>
+<a href="/"><?php echo $this->translate('Home'); ?></a> / <?php echo $this->translate('Additional services')?></p></div>
+<div id="menu_view">
+    <div id="line"></div>
+</div>
+
+<div class="pages">
+<h1 align="center"><?php echo $this->translate('Our services');?></h1>
+
+    <div id="forma">
+    <form action="/services/order" method="post">
+    <?php       
+        $this->partialLoop()->setObjectKey('model');
+        echo $this->partialLoop('services/services-list.phtml', $this->services); 
+    ?>  
+    <div class="class1"><div class="view_list_price">
+    <div class="bt_price"><a class="red_button user_click" href="/services/order"><?php echo $this->translate('Send order');?></a></div>
+    </div></div>
+    </form>   
+    </div>
+</div>

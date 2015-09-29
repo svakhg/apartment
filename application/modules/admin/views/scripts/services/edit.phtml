@@ -1,0 +1,7 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><a href="/admin/services">Услуги</a> <span class="divider">/</span></li>
+    <li><span><?php echo $this->service->get('name') ?></span></li>
+</ul>
+<h3><?php echo $this->service->get('name') ?></h3>
+<?php echo $this->form; ?>

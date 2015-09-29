@@ -1,0 +1,33 @@
+<div class="forma">
+ <div class="frm">
+     <form id="flat_order" action="/apartments/order/id/<?php echo $this->apartments->ID; ?>" method="post">
+    <div class="field"><p>Name <span>*</span></p><input name="name" id="name" type="text"></div>
+    <!--
+    <div class="field"><p>E-Mail <span>*</span></p><input name="email" id="mail" type="text"></div>
+    <div class="field"><p>Telephone</p><input name="phone" type="text"></div>
+    <div class="field"><p>Arrival date: <span>*</span></p><input type="text" name="arrival" id="arrival" class="calendar"></div>
+	<div class="field"><p>Departure date: <span>*</span></p><input type="text" name="departure" id="departure" class="calendar"></div>
+   <div class="bt_price"><a href="#" class="red_button" id="add_serv">Additional services</a></div>
+   
+   
+   	<div class="com">
+    <div class="field"><p>Comments:</p><textarea name="text"></textarea></div>
+    <div class="field"><p>CAPCHA <span>*</span></p>
+    <img src="kcaptcha/index.php?'.session_name().'='.session_id().'">
+    <input type="text" name="keystring" class="kapcha" id="keystring">
+    </div>
+	<div class="field"><input type="hidden" name="apart" value="<?php echo $apart; ?>"></div>
+	
+    <div class="field">
+        <input type="submit" name="send_order" class="red_button" value="Send request" onClick="return validate();">
+    </div>
+	</div>
+   -->
+   
+   <div class="field">
+        <input type="submit" name="send_order" class="red_button" value="Send request" onClick="return validate();">
+    </div>
+   
+</form>
+</div>
+</div>

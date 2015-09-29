@@ -1,0 +1,10 @@
+<?php if($this->services) {?>
+<form action="/admin/services/del" method="post">
+<p>Вы уверены, что хотите удалить запись № <?php echo $this->services->ID; ?> ?</p>
+<div>
+    <input type="hidden" name="ID" value="<?php echo $this->services->ID; ?>" >
+    <input type="submit" name="del" value="Yes" >
+    <input type="submit" name="del" value="No" >
+</div>
+</form>
+<?php } else echo 'errorr';?>

@@ -1,0 +1,23 @@
+<p>New order:</p>
+
+Apartment №: <?php echo $this->apartments->ID; ?> Adress <?php echo $this->apartments->get('adress'); ?> <br/>
+Price: <?php echo $this->apartments->get('cost'); ?> per day <br/>
+Arrival date: <?php echo $this->client_info->arrival; ?> <br/>
+Departure date: <?php echo $this->client_info->departure; ?> <br/>
+<?php if ($this->client_info->comment){?>
+Comments: <?php echo $this->client_info->comment ?><br/>
+<?php } ?>
+<?php if ($this->services){?>
+Additional services:
+<ul>
+    <?php foreach ($this->services as $service){?>
+        <li>
+            <?php echo $service->get('name') ?>
+        </li>
+    <?php }?>
+</ul>
+<?php } ?>
+
+Client: <?php echo $this->client_info->name ?><br>
+E-mail: <?php echo $this->client_info->email ?><br>
+Phone <?php echo $this->client_info->phone ?><br>

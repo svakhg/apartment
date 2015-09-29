@@ -1,0 +1,63 @@
+#content{
+    margin-top: 40px;
+}
+#fieldset-feature label{
+    float: left;
+    clear: left;
+    padding-top: 5px;
+}
+#fieldset-feature input[type="checkbox"]{
+    float: left;
+    margin-top: 9px;
+}
+#fieldset-feature dt{
+    float: left;
+    width: 215px;
+    clear: left;
+}
+#fieldset-feature dd{
+    float: left;
+}
+#fieldset-feature dd input[type="text"]{
+    margin-left: 10px;
+    width: 100px;
+}
+
+#town-label, #town_rus-label, #town_eng-label, #id_rayons-label, #floor_-label,#loyalty-label{
+    width: 215px;
+    float: left;
+    padding-top: 5px;
+}
+#town-element, #town_rus-element, #town_eng-element, #id_rayons-element, #floor_-element, #loyalty-element{
+    float: left;
+}
+form dt{
+    clear: left;
+}
+form textarea{
+    width: 600px;
+}
+form input[type="text"]{
+    width: 600px;
+}
+#feature-element{
+    margin-left: 0;
+}
+#feature-label{
+    height: 0;
+}
+form label{
+    padding-left: 12px;
+}
+form label.required{
+    background: url('../img/ast.png') no-repeat 0 0 scroll transparent;
+}
+form dd ul.errors{
+    margin: 0 0 0 12px;
+    padding: 0;
+    list-style: none outside none;
+}
+form dd ul.errors li{
+    font-size: 12px;
+    color: #B94A48;
+}

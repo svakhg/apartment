@@ -1,0 +1,29 @@
+Уважаемый(-ая) <?php echo $this->client_info->name; ?> !
+Компания «Славянка» благодарит за ваш заказ.
+Детали вашего заказа:
+Квартира №: <?php echo $this->apartments->ID; ?> по адресу <?php echo $this->apartments->get('adress'); ?>
+Цена: <?php echo $this->apartments->get('cost'); ?> грн в день 
+Дата прибытия: <?php echo $this->client_info->arrival; ?>
+Дата отъезда: <?php echo $this->client_info->departure; ?>
+<?php if ($this->client_info->comment){?>
+Комментарии: <?php echo $this->client_info->comment ?>
+<?php } ?>
+<?php if ($this->services){?>
+Дополнительные услуги:
+<ul>
+    <?php foreach ($this->services as $service){?>
+        <li>
+            <?php echo $service->get('name') ?>
+        </li>
+    <?php }?>
+</ul>
+<?php } ?>
+Наш менеджер свяжется с вами в течение 12 часов. 
+
+
+С уважением,
+Компания «Славянка»
+Посуточная аренда квартир
+www.apartment-kharkov.com.ua 
+apartment-kharkov.com.ua
+

@@ -1,0 +1,10 @@
+<?php if($this->rayons) {?>
+<form action="/admin/rayons/del" method="post">
+<p>Вы уверены, что хотите удалить запись № <?php echo $this->rayons->ID; ?> ?</p>
+<div>
+    <input type="hidden" name="ID" value="<?php echo $this->rayons->ID; ?>" >
+    <input type="submit" name="del" value="Yes" >
+    <input type="submit" name="del" value="No" >
+</div>
+</form>
+<?php } else echo 'errorr';?>

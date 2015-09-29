@@ -1,0 +1,15 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><a href="/admin/apartments">Апартаменты</a> <span class="divider">/</span></li>
+    <li><a href="/admin/apartments/edit/id/<?php echo $this->id ?>">Объявлениe #<?php echo $this->id?></a> <span class="divider">/</span></li>
+    <li><span>Фотографии</span></li>
+</ul>
+<h3>Загруженные фото:</h3>
+<ul id="photo-list" class="thumbnails">
+    <?php 
+    $this->partialLoop()->setObjectKey('model');
+    echo $this->partialLoop('apartments/_photo.phtml', $this->photos);?>
+</ul>
+<hr class="soften" />
+<h3>Загрузить фото:</h3>
+<?php echo $this->form; ?>

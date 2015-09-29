@@ -1,0 +1,63 @@
+<?php echo $this->doctype(); ?>
+<html>
+    <head>
+        <?php echo $this->headTitle(); 
+        echo $this->headMeta();
+        echo $this->headScript();
+        echo $this->headLink(); ?>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/admin" class="brand">Admin</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/admin/apartments/">Апартаменты</a></li>
+                        <li><a href="/admin/rayons/">Районы</a></li>
+                        <li><a href="/admin/services/">Услуги</a></li>
+                        <li><a href="/admin/news/">Новости</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Страницы <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li><a href="/admin/home/">Домашняя страница</a></li>
+                                <li><a href="/admin/contacts/">Связаться с нами</a></li>
+                                <li><a href="/admin/about/">О нас</a></li>
+                                <li><a href="/admin/rules/">Правила работы</a></li>
+                                <li><a href="/admin/way/">Как добраться </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/admin/index/help/">Помощь онлайн</a></li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" id="lang" data-toggle="dropdown" href="#"><?php echo Model_Lang::get() == 'rus'? 'Русский' : 'Английский'?> <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="lang">
+                                <li><a href="<?php echo Model_Lang::getAdminLangUrl()?>">Русский</a></li>
+                                <li><a href="<?php echo Model_Lang::getAdminLangUrl('eng')?>">Английский</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/">На сайт</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="content">
+            <?php 
+            if ($this->layout()->message){?>
+                <div class="alert <?php echo $this->layout()->message_class? 'alert-'.$this->layout()->message_class : 'alert-success'?>">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <?php echo $this->layout()->message ?>
+                </div>
+            <?php } ?>
+            <?php echo $this->layout()->content ?>
+        </div>
+        
+    </body>
+</html>

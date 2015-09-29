@@ -1,0 +1,48 @@
+<?
+
+$merchant_id='i9838957327';
+$signature="pziRw9NbzIXGJUdPsF0qAzRX5rEQEgFiJHBSz";
+$method='card';
+$phone='0990660129';
+$xml="<request>      
+				<version>1.2</version>
+				<result_url>htpp://www.apartment-kharkov.com.ua/order.php</result_url>
+				<server_url>htpp://www.apartment-kharkov.com.ua/index.php</server_url>
+				<merchant_id>$merchant_id</merchant_id>
+				<order_id>Apartment #".$this->apartment->ID.date("m.d.y")."</order_id>
+				<amount>".$this->apartment->cost_rus."</amount>
+				<currency>UAH</currency>
+				<description>Apartment #".$this->apartment->ID."</description>
+				<default_phone>$phone</default_phone>
+				<pay_way>$method</pay_way> 
+				</request>
+				";
+$xml_encoded = base64_encode($xml); 
+$lqsignature = base64_encode(sha1($signature.$xml.$signature,1));
+            
+?>
+
+<div class="plf">
+<div class="paypal">
+<form method="post" action= "https://www.paypal.com/cgi-bin/webscr">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="director@apartment-kharkov.com">
+<input type="hidden" name="item_name" value="Apartment # <?php echo $this->apartment->ID;?>">
+<input type="hidden" name="item_number" value="<?php echo $this->apartment->ID;?>">
+<input type="hidden" name="amount" value="<?php echo $this->apartment->cost_eng;?>.00">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="htpp://www.apartment-kharkov.com/index.php?lang=<?php echo $lang; ?>">
+<input type="hidden" name="return" value="htpp://www.apartment-kharkov.com/index.php?lang=<?php echo $lang; ?>">
+<input type="image" src="/img/paypal.png">
+</form>	
+</div>
+
+<div class="paypal1">
+<form action="https://www.liqpay.com/?do=clickNbuy" method="POST">
+  <input type="hidden" name="operation_xml" value="<?php echo $xml_encoded; ?>" />
+  <input type="hidden" name="signature" value="<?php echo $lqsignature; ?>" />
+<input type="image" src="/img/liqpay.png"/>
+</form>
+</div>
+    
+</div>

@@ -1,0 +1,10 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><a href="/admin/apartments">Апартаменты</a> <span class="divider">/</span></li>
+    <li><span>Объявлениe #<?php echo $this->id?></span></li>
+</ul>
+<h3>Объявлениe #<?php echo $this->id?></h3>
+<p class="pull-right">
+    <a href="/admin/apartments/edit-photos/id/<?php echo $this->id ?>" class="btn">Редактировать фотографии</a> 
+</p>
+<?php echo $this->form; ?>

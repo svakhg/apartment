@@ -1,0 +1,8 @@
+<div id="you_here"><p><span><?php echo $this->translate('You are here')?></span>
+<a href="/"><?php echo $this->translate('Home'); ?></a> / <?php echo $this->translate('Apartments')?></p></div>
+<div id="menu_view">
+    <div id="line"></div>
+</div>
+<?php 
+$this->partialLoop()->setObjectKey('model');
+echo $this->partialLoop('apartments/_apartment.phtml', $this->apartments);

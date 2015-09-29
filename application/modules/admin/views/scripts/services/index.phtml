@@ -1,0 +1,25 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><span>Услуги</span></li>
+</ul>
+<h3>Услуги</h3>
+<p class="pull-right">
+    <a href="/admin/services/new-serv" class="btn btn-primary">Добавить услугу</a>
+</p>
+<table class="table table-bordered table-hover" id="services">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Услуга</th>
+        <th id="action" style="width: 100px">Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php 
+        $this->partialLoop()->setObjectKey('model');
+        echo $this->partialLoop('services/services-list.phtml', $this->services);?>
+    </tbody>
+</table>
+<p>
+    В этой таблице записи можно менять местами перетаскиванием. В этом порядке будут сортироваться иконки в левой панели сайта.
+</p>

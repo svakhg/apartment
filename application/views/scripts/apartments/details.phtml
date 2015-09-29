@@ -1,0 +1,120 @@
+<div id="you_here">
+<p>
+    <span><?php echo $this->translate('You are here')?></span>
+    <a href="/"><?php echo $this->translate('Home'); ?></a> / 
+    <a href="<?php echo $this->baseUrl('/apartments/') ?>"><?php echo $this->translate('Apartments')?></a> / 
+    <?php if ($this->rooms){?>
+        <a href="<?php echo $this->baseUrl('/apartments/rooms/' . $this->rooms) ?>"><?php echo $this->rooms . '-' . $this->translate('room apartments') ?></a>
+    <?php }else{ ?>
+        <a href="<?php echo $this->baseUrl('/apartments/') ?>"><?php echo $this->translate('apartments') ?></a>
+    <?php } ?>
+     / <?php echo $this->translate('apartment') . ' #' . $this->apartment->ID ?>
+</p>
+</div>
+<div id="menu_view">
+    <div id="line"></div>
+</div>
+<div id="page_flat">
+<div id="g1">   
+    <div id="gallery"><div id="left_arrow"></div>
+        <div id="big_pic">
+            <div class="wf">
+                <a rel="galery" class="fancybox" href="/img/apartments/<?php echo $this->images[0]->file; ?>">
+                    <img src="<?php echo Model_Image::getUrl($this->images[0]->file, 476, 287); ?>" />
+                    <span class="layer"></span>
+                </a>
+             </div>
+            
+             <?php
+                foreach ($this->features as $f)
+                 {
+                $feture = $f->findDependentRowset('Model_Features');
+                if($f->feature_id == 29)
+                echo '<div class="wifi"></div>';
+                }
+             ?>
+         </div>
+         <div id="right_arrow"></div>
+    </div>
+    <div id="fp">
+        <div class="view_list_price">
+            <p>
+                <span class="txt1"><?php echo $this->translate('Price')?></span><br>
+                <span class="txt2"><?php echo $this->translate('Per day')?></span>
+            </p>
+            <div class="list_price">
+                <span class="pr"><?php echo $this->apartment->get('cost'); ?></span>
+             <div class="grn"><?php echo $this->translate('usd')?></div>
+            </div>
+            <div class="bt_price">
+                <a class="red_button user_click" href="/apartments/reserve/id/<?php echo $this->apartment->ID; ?>">
+                    <?php echo $this->translate('Request availability')?>
+                </a>
+            </div>
+        </div>
+        <div id="flat_price"></div>
+    </div>
+    <div id="g2">
+        <div>
+             <?php 
+             $this->partialLoop()->setObjectKey('model');
+             echo $this->partialLoop('apartments/gallery.phtml', $this->images);?>     
+         </div>
+    </div>
+</div>  <!--end of g1-->
+
+<div id="description1">
+<h2><?php echo $this->apartment->get('adress'); ?></h2>
+<ul class="icons unstyled">
+    <?php 
+        foreach ($this->features as $f){
+            $feture = $f->findDependentRowset('Model_Features');
+            foreach ($feture as $v){?>
+                <li><img src="/img/<?php echo $v->img; ?>" alt="<?php echo $v->get('title') . ($f->value? ' - ' .  $f->value: ''); ?>" title="<?php echo $v->get('title') . ($f->value? ' - ' .  $f->value: ''); ?>"/></li>
+            <?php }
+        }
+    ?>
+</ul>
+<?php echo $this->apartment->get('how'); ?>
+<div>
+    <p></p>
+    <p><span><?php echo $this->translate('Description')?></span></p>
+    <p><?php echo $this->apartment->get('addinfo'); ?></p>
+</div>
+</div> <!-- end of description-->
+
+<div id="blocks">
+    <?php if (!empty($this->apartment->yandexmapcode)){?>
+        <div id="big_map">
+            <?php 
+            $map = preg_replace('{height=\W?\d+\W?}is', 'height="360"', $this->apartment->yandexmapcode);
+            $map = preg_replace('{width=\W?\d+\W?}is', 'width="375"', $map);
+            $map = preg_replace('{width:\W?\d+px\W?}is', 'width: 375px;', $map);
+            $map = preg_replace('{height:\W?\d+px\W?}is', 'height: 360px;', $map);
+            echo $map;
+            ?>
+        </div>
+    <?php } ?>
+    <?php if (!empty($this->apartment->video)){?>
+    <div id="video1">
+        <?php 
+        $video = preg_replace('{height=\W?\d+\W?}is', 'height="360"', $this->apartment->video);
+        $video = preg_replace('{width=\W?\d+\W?}is', 'width="440"', $video);
+        echo $video;
+        ?>
+    </div>
+    <?php } ?>
+</div> 
+<div id="pay_now">
+<p>
+<?php echo $this->translate('Please, request availability prior to making a prepayment. After you receive a confirmation of your booking, you are welcome to proceed to prepayment.')?>  
+</p>
+
+    <div class="view_list_price">
+        <div class="bt_price">
+            <a href="/apartments/paypal/id/<?php echo $this->apartment->ID ; ?>" class="red_button user_click"><?php echo $this->translate('Pay now')?></a>
+        </div>
+    </div>
+</div>
+
+</div> <!-- end of page_flat -->

@@ -1,0 +1,108 @@
+<?php 
+    echo $this->doctype(); 
+    $services = new Model_Services();
+    $this->layout()->services = $services->getServicesMenu();
+    $this->layout()->servicesIcons = $services->lefticons();
+?>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/apartment-kharkov.css" type="text/css" />
+    <?php
+        echo $this->headTitle();
+        echo $this->headMeta(); 
+        echo $this->headScript();
+        echo $this->headLink();
+    ?>
+        
+        <?php
+     if (Model_Lang::get() == 'rus')
+     { ?>
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2246754-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <?php
+     }
+ else {  ?>
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-2246754-2']);
+          _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+    </script>
+     
+     <?php }?>
+    
+    </head>
+    <body>
+        <div id="header">
+           <div id="block1">
+            <div id="block3">
+			<?php if (Model_Lang::get() == 'rus'){?><img src="/img/girl-rus.png" alt="karavai" usemap="#karavai" /><?php }
+				else {?><img src="/img/girl.png" alt="karavai" usemap="#karavai" /><?php }?>
+                <map id="karavai" name="karavai">
+                <area shape="rect" coords="145,30,375,140" alt="karavai" title="" href="/" >
+                </map>
+            </div>
+        </div>
+        <div id="block2"></div>
+        </div> <!-- end of header-->
+        <?php echo $this->render('includes/menu.phtml'); ?>
+        <div id="content">
+        <?php echo $this->render('includes/sidebar.phtml'); ?>
+        
+         <div id="center_column">
+            <?php if ($this->layout()->message){?>
+                <div class="notice alert">
+                    <?php echo $this->layout()->message ?>
+                </div>
+            <?php } ?>
+            <?php echo $this->layout()->content?>
+         </div>
+        
+        </div>
+        
+<div id="footer">
+    <div id="footer_pic"></div>
+    <div id="footer_fond">
+    <div id="footer_1">
+    <div id="footer_menu">
+    <div class="menu_text">
+    <ul>
+    <li><a href="/"><?php echo $this->translate('Home')?></a></li> 
+    <li><a href="/apartments"><?php echo $this->translate('Apartments')?></a></li>
+    <li><a href="/loyalty"><?php echo $this->translate('Loyalty program')?></a></li>
+    <li><a href="/city"><?php echo $this->translate('Our city')?></a></li>
+    <li><a href="/rules"><?php echo $this->translate('Rules')?></a></li>
+    <li><a href="/about"><?php echo $this->translate('Contact us')?></a></li>
+    <li class="last"><a href="/services"><?php echo $this->translate('Additional services')?></a></li>
+    </ul>
+    </div>
+    </div>
+    
+    <div id="footer_copyright">Copyright © 2010-2012, Apartment-kharkov.com.ua</div>
+    
+    <div id="footer_code">
+    <p id="footer_text1">Scan me!</p>
+    <p id="footer_text2">Scan this QR code!</p>
+    <div id="footer_code_pic"></div>
+    </div>
+    
+    </div>
+    </div>
+    </div> <!-- end of footer -->
+    
+    </body>
+</html>

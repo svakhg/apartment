@@ -1,0 +1,23 @@
+<p>Поступил заказ:</p>
+
+Квартира №: <?php echo $this->apartments->ID; ?> по адресу <?php echo $this->apartments->get('adress'); ?> <br/>
+Цена: <?php echo $this->apartments->get('cost'); ?> грн в день <br/>
+Дата прибытия: <?php echo $this->client_info->arrival; ?> <br/>
+Дата отъезда: <?php echo $this->client_info->departure; ?> <br/>
+<?php if ($this->client_info->comment){?>
+Комментарии: <?php echo $this->client_info->comment ?><br/>
+<?php } ?>
+<?php if ($this->services){?>
+Дополнительные услуги:
+<ul>
+    <?php foreach ($this->services as $service){?>
+        <li>
+            <?php echo $service->get('name') ?>
+        </li>
+    <?php }?>
+</ul>
+<?php } ?>
+
+Клиент: <?php echo $this->client_info->name ?><br>
+E-mail: <?php echo $this->client_info->email ?><br>
+Телефон <?php echo $this->client_info->phone ?><br>

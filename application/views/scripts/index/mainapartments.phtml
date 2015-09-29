@@ -1,0 +1,17 @@
+    <div class="rooms_main">
+            <div class="rooms_main_pic">
+            <a href="<?php echo $this->model->ID; ?>">
+                <img width="290" height="153" src="<?php echo Model_Image::getUrl($this->model->img, 290, 153)?>" alt="room"/>
+            </a>
+            </div>
+            <div class="main_price">
+            <?php echo $this->translate('from')?>
+            <span><?php echo $this->model->get('cost'); ?></span>
+            <br/><?php echo $this->translate('usd')?>
+            </div>
+            <p class="text_bottom"><?php echo $this->model->get('adress'); ?></p>
+            <div class="bt">
+                <a href="<?php echo $this->url(array('id' => $this->model->ID), 'apartment') ?>" 
+                   class="button1"><?php echo $this->translate('Detailed')?></a>
+            </div>
+    </div> 

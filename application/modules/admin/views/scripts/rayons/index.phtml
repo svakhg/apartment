@@ -1,0 +1,22 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><span>Районы</span></li>
+</ul>
+<h3>Районы</h3>
+<p class="pull-right">
+    <a href="/admin/rayons/new-rayon" class="btn btn-primary">Добавить новый район</a>
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+        <th style="width: 60px">№</th>
+        <th>Название района</th>
+        <th style="width: 100px">Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+        $this->partialLoop()->setObjectKey('model');
+        echo $this->partialLoop('rayons/rayons.phtml', $this->rayons);?>
+    </tbody>
+</table>

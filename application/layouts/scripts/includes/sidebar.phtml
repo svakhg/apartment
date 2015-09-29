@@ -1,0 +1,43 @@
+<div id="left_column">
+        <div id="left_column_block_contacts">
+            <div class="left_column_headers"><div class="headers_text"><?php echo $this->translate('Contact us')?></div></div>
+            <div id="left_column_contacts_phone">
+                <ul>
+                    <li class="kievstar">+38(067)842-96-75</li>
+                    <li class="mts">+38(099)077-14-34</li>
+                    <li class="phone">+38(057)771-03-40</li>
+                </ul>
+            </div>
+            <div id="left_column_contacts_inet">
+                <div id="skype"><a href=" skype:manager_apartment?call"><img src="/img/skype.png" alt="skype"></a></div><p class="contacts_inet">manager_apartment</p><p class="contacts_inet">apartment_manager</p>
+                <div id="email1"><a href="mailto:office@apartment-kharkov.com"><img src="/img/email.png" alt="email"></a></div><span id="eml">office@apartment-kharkov.com</span>
+            </div> <!-- end of left_column_contacts_inet -->
+        </div> <!-- end of left_column_block_contacts -->
+
+        <div id="left_column_block_filter">
+            <input type="hidden" id="rooms-count" value=""/>
+            <div class="left_column_headers"><div class="headers_text"><?php echo $this->translate('Filter')?></div></div>
+            <div id="title_rooms"><?php echo $this->translate('Amount of rooms')?>:</div>
+            <div id="filter1" class="rooms-count" data-count="1"><a href="apartments/#">1</a></div>
+            <div id="filter2" class="rooms-count" data-count="2"><a href="apartments/#">2</a></div>
+            <div id="filter3" class="rooms-count" data-count="3"><a href="apartments/#">3</a></div>
+            <div id="filter4" class="rooms-count" data-count="4"><a href="apartments/#">4</a></div>
+            <div id="filter_price"><?php echo $this->translate('Price from')?><input type="text" id="price-from" class="price"><?php echo $this->translate('to')?><input id="price-to" type="text" class="price"> <?php echo $this->translate('usd')?></div>
+            <div id="filter_button"><input type="submit" class="red_button" value="<?php echo $this->translate('Search')?>"></div>
+        </div> <!-- end of left_column_block_filter -->
+
+        <div id="left_column_block_service">
+            <div class="left_column_headers"><div class="headers_text"><?php echo $this->translate('Additional services')?></div></div>
+            <div class="block_service">
+            <?php 
+            $this->partialLoop()->setObjectKey('model');
+            echo $this->partialLoop('services/lefticons.phtml', $this->layout()->servicesIcons); ?> 
+            </div>        
+        
+        </div> <!-- end of left_column_block_service -->
+        <div class="plat">
+        <div class="paypal"><a href="https://www.paypal.com"><img src="/img/paypal.png" alt="paypal"></a></div>
+        <div class="paypal1"><a href="https://liqpay.com"><img src="/img/liqpay.png" alt="liqpay"></a></div>
+        </div>
+    </div> <!-- end of left_column -->
+

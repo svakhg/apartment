@@ -1,0 +1,26 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><span>Апартаменты</span></li>
+</ul>
+<h3>Объявления</h3>
+<p class="pull-right">    
+    <a href="/admin/apartments/new-apart" class="btn btn-primary">Новое объявление</a>
+</p>
+<table class="table table-bordered table-hover" id="apartments">
+    <thead>
+        <tr>
+        <th>№</th>
+        <th>Название квартиры</th>
+        <th>Адрес</th>
+        <th id="action">Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+        $this->partialLoop()->setObjectKey('model');
+        echo $this->partialLoop('apartments/table-apart.phtml', $this->apartments);?>
+    </tbody>
+</table>
+<p class="pull-right">    
+    <a href="/admin/apartments/new-apart" class="btn btn-primary">Новое объявление</a>
+</p>

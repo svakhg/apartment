@@ -1,0 +1,18 @@
+<ul class="breadcrumb">
+    <li><a href="/admin">Главная</a> <span class="divider">/</span></li>
+    <li><span>Новости</span></li>
+</ul>
+<h3>Новости</h3>
+<p class="pull-right">
+    <a href="/admin/news/news" class="btn btn-primary">Добавить</a>
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+    
+    <th> Новость</th>
+    <th colspan="4" id="action">Действие</th>
+    </tr>
+    <?php 
+    $this->partialLoop()->setObjectKey('model');
+    echo $this->partialLoop('news/news-list.phtml', $this->news);?>
+</table>

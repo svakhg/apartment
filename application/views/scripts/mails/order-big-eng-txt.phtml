@@ -1,0 +1,19 @@
+Dear <?php echo $this->client_info->name; ?>!
+Thank you for your request at Charming Apartments. It was successfully received.
+Here are details of your order:
+<?php if ($this->client_info->comment){?>
+Comments: <?php echo $this->client_info->comment ?>
+<?php } ?>
+Your order:
+<ul>
+    <?php foreach ($this->service as $service){?>
+        <li>
+            <?php echo $service->get('name') ?>
+        </li>
+    <?php }?>
+</ul>
+Our manager will contact you within next 12 hours.
+
+All the best
+Charming Apartments
+apartment-kharkov.com.ua

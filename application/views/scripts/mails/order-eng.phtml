@@ -1,0 +1,13 @@
+Dear <?php echo $this->client_info->name; ?>!<br>
+Thank you for your request at Charming Apartments. It was successfully received. <br>
+Here are details of your order: <br>
+<?php if ($this->client_info->comment){?>
+Comments: <?php echo $this->client_info->comment ?><br>
+<?php } ?>
+<p>Your order:<br><?php echo $this->service->get('name'); ?></p>
+
+Our manager will contact you within next 12 hours. <br>
+
+All the best<br>
+Charming Apartments<br>
+<a href="www.apartment-kharkov.com.ua">apartment-kharkov.com.ua</a>

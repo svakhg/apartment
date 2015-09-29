@@ -1,0 +1,8 @@
+<tr>
+    <td><?php echo $this->model->ID;?></td>
+    <td><?php echo $this->model->get('name');?></td>
+    <td>
+        <a href="/admin/rayons/edit/id/<?php echo $this->model->ID; ?>" title="Редактировать"><i class="icon-pencil"></i></a>
+        <a href="/admin/rayons/del/id/<?php echo $this->model->ID; ?>" class="remove-rayon" title="Удалить"><i class="icon-remove"></i></a>
+    </td>
+</tr>
